@@ -1,0 +1,12 @@
+:<<"END"
+# 30  = black
+# 31  = red
+# 32  = green
+# 33  = orange
+# 34  = blue
+# 35  = purple
+# 36  = cyan
+# 37  = grey
+END
+
+export LS_COLORS="di=00;33:fi=00;37"
