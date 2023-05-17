@@ -1,12 +1,13 @@
 # description : 
-# Ubuntu's default shell is dash
-# Checking default shell : vi /etc/passwd or ls -al /bin/sh
+# This file is intended to clarify the concept.
 
-1. change default shell dash -> bash
+1. Ubuntu's default shell is dash
+Checking default shell : vi /etc/passwd or ls -al /bin/sh
+# change default shell dash -> bash
 sudo dpkg-reconfigure dash
 => Select 'No'
-
-2. confirm default shell
+# confirm default shell
 ls -al /bin/sh
-
 # Why?
+
+2. 
