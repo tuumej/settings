@@ -1,0 +1,12 @@
+# description : 
+# Ubuntu's default shell is dash
+# Checking default shell : vi /etc/passwd or ls -al /bin/sh
+
+1. change default shell dash -> bash
+sudo dpkg-reconfigure dash
+=> Select 'No'
+
+2. confirm default shell
+ls -al /bin/sh
+
+# Why?
