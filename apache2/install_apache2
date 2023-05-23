@@ -1,0 +1,44 @@
+1. apache 기본
+
+> 설치
+$ sudo apt install apache2
+
+> apache 기동
+$ systemctl status apache2.service
+$ systemctl stop apache2.service
+$ systemctl start apache2.service
+
+2. OpenSSL 설치 & SSL 인증서 생성
+
+> 개인키 생성 (.key)
+$ sudo openssl genrsa -des3 -out imsi.key 2048
+
+> 인증요청서 생성 (.csr : Certificate Signing Request)
+$ sudo openssl req -new -days 365 -key imsi.key -out imsi.csr
+
+> 개인키 Password 제거
+$ sudo cp imsi.key imsi.key.backup
+$ sudo openssl rsa -in imsi.key.backup -out imsi.key
+
+> 자체서명 인증서 성생 (.crt)
+$ sudo openssl x509 -req -days 365 -in imsi.csr -signkey imsi.key -out imsi.crt
+
+3. SSL 설정
+
+> 설정 파일
+/etc/apache2/sites-available/default-ssl.conf
+------------------------------------------------------------------
+# 2. OpenSSL 설치 & SSL 인증서 생성 파일 참고.
+SSLCertificateFile      /etc/apache2/sites-available/imsi.crt
+SSLCertificateKeyFile   /etc/apache2/sites-available/imsi.key
+------------------------------------------------------------------
+> ssl 파일 지정
+$ sudo cp default-ssl.conf example-ssl.conf
+$ sudo a2ensite example-ssl.conf
+
+> SSL 모드 활성화
+$ a2enmod ssl
+> SSL 모드 비활성화
+$ a2dismod ssl
+
+4. Redirect 설정 ( http -> https )
