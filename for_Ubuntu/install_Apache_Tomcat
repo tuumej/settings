@@ -1,0 +1,59 @@
+/* install apache2
+ * 설치 경로 : /home/web02/apache2 , /home/web02/apr , /home/web02/apr-util , /home/web02/pcre
+ * 설치 계정 : web02
+ */
+
+/* Download package */
+$ cd /home/web02
+$ mkdir install
+$ cd /home/web02/install
+$ wget https://dlcdn.apache.org/httpd/httpd-2.4.57.tar.gz
+$ wget https://dlcdn.apache.org/apr/apr-1.7.4.tar.gz
+$ wget https://dlcdn.apache.org/apr/apr-util-1.6.3.tar.gz
+$ wget https://sourceforge.net/projects/pcre/files/pcre/8.45/pcre-8.45.tar.gz
+
+/* Unpackaging */
+$ cd /home/web02/install
+$ tar -zxf httpd-2.4.57.tar.gz
+$ mv httpd-2.4.57 ../apache2
+$ tar -zxf apr-1.7.4.tar.gz
+$ mv apr-1.7.4 ../apr
+$ tar -zxf apr-util-1.6.3.tar.gz
+$ mv apr-util-1.6.3 ../apr-util
+$ tar -zxf pcre-8.45.tar.gz
+$ mv pcre-8.45 ../pcre 
+
+/* apr install 
+ * error :> cp -arp libTool libToolT
+ */
+$ cd /home/web02/apr
+$ ./configure --prefix=/home/web02/apr
+$ make && make install
+
+
+/* apr-util */
+$ cd /home/web02/apr-util
+$ ./configure --with-apr=/home/web02/apr --prefix=/home/web02/apr-util
+$ make && make install
+
+/* pcre */
+$ cd /home/web02/pcre
+$ ./configure --prefix=/home/web02/pcre
+$ make && make install
+
+/* apache */
+$ cd /home/web02/apache2
+$ ./configure --prefix=/home/web02/apache2/ \
+ --enable-module=so --enable-rewrite --enable-so \
+ --with-apr=/home/web02/apr/ \
+ --with-apr-util=/home/web02/apr-util \
+ --with-pcre=/home/web02/pcre/bin/pcre-config \
+ --enable-mods-shared=all
+ $ make && make install 
+ 
+ /* 일반 계정으로 apache 관리
+  * 80 port 권한 충돌
+  */
+ $ cd /home/web02/apache2/bin/
+ $ chown root:web02 httpd
+ $ chmod +s httpd
