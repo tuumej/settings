@@ -4,6 +4,9 @@
  */
 
 /* Download package */
+$ sudo apt-get install gcc libexpat1-dev g++
+$ sudo apt-get install --reinstall make
+$ sudo apt update
 $ cd /home/web02
 $ mkdir install
 $ cd /home/web02/install
@@ -57,3 +60,15 @@ $ ./configure --prefix=/home/web02/apache2/ \
  $ cd /home/web02/apache2/bin/
  $ chown root:web02 httpd
  $ chmod +s httpd
+ 
+/* tomcat-connector */
+$ cd /home/web02/install
+$ wget https://downloads.apache.org/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.48-src.tar.gz
+$ tar -zxf tomcat-connectors-1.2.48-src.tar.gz
+$ mv tomcat-connectors-1.2.48-src ../tomcat-connectors
+$ sudo apt-get install autoconf libtool libtool-bin apache2-dev
+$ sudo apt-get update
+$ ./buildconf.sh
+$ ./configure --with-apxs=/home/web02/apache2/bin/apxs
+$ make && make install
+
