@@ -1,0 +1,2 @@
+# 80 포트로 들어오는 덤프 확인
+$ tcpdump -lnni eth0 port 80
