@@ -1,0 +1,15 @@
+1. nfs 관련 패키지 설치
+# sudo apt-get install nfs-common
+
+2. nfs 경로 생성 및 마운트 작업 ( 권장 옵션 : -o vers=3 )
+# mkdir /mnt/nas
+# mount -t nfs -o vers=3 169.254.84.52:/n2586308_imsinas01 /mnt/nas
+
+5. 마운트 정보 유지 설정 (fstab 설정)
+# vi /etc/fstab
+
+----------------------------
+ ... 
+ 169.254.84.52:/n2586308_imsinas01 /mnt/nas /mnt/nas nfs defaults 0 0
+----------------------------
+ 
