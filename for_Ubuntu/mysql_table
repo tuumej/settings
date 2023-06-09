@@ -1,0 +1,11 @@
+# 사용자 테이블 추가
+CREATE TABLE USER
+(
+    ID INT,
+    NAME VARCHAR(30),
+    IP VARCHAR(30),
+    CACHEID VARCHAR(30)
+);
+
+# 테스트 데이터 추가
+INSERT INTO USER(ID, NAME, IP, CACHEID) VALUES('111','111','111','111');
