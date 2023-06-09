@@ -8,8 +8,9 @@
 5. 마운트 정보 유지 설정 (fstab 설정)
 # vi /etc/fstab
 
+- 내용 추가
 ----------------------------
  ... 
- 169.254.84.52:/n2586308_imsinas01 /mnt/nas /mnt/nas nfs defaults 0 0
+ 169.254.84.52:/n2586308_imsinas01 /mnt/nas nfs defaults 0 0
 ----------------------------
  
