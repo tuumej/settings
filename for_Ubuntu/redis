@@ -1,0 +1,27 @@
+$ wget https://github.com/ran-jit/tomcat-cluster-redis-session-manager/releases/download/2.0.4/tomcat-cluster-redis-session-manager.zip
+$ unzip tomcat-cluster-redis-session-manager.zip
+$ cp ~/tomcat-cluster-redis-session-manager/conf/* ~/tomcat9/conf/
+$ cp ~/tomcat-cluster-redis-session-manager/lib/* ~/tomcat9/lib/
+
+$ vi ~/tomcat9/conf/context.xml
+** 주의 tomcat9.0.65 버전에서 확인된 설정. 11에서는 오류 발생
+--------------------------------------
+<Context>
+
+    ... 아래 두 줄 추가 ...
+        <Valve className="tomcat.request.session.redis.SessionHandlerValve" />
+        <Manager className="tomcat.request.session.redis.SessionManager" />
+
+</Context>
+
+----------------------------------------------------------
+
+$ sudo apt install redis-tools
+
+$ redis-cli -h 서버주소 -p 포트 -a redis-cli
+=> redis-cli -h 	redisc-gsjaq.vpc-cdb.ntruss.com -p 6379 -a redis-cli
+
+---------------------------------------------------------
+redisc-gsjaq.vpc-cdb.ntruss.com:6379> info
+redisc-gsjaq.vpc-cdb.ntruss.com:6379> monitor
+---------------------------------------------------------
