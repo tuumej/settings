@@ -1,5 +1,8 @@
 #!/bin/bash
 # NAS ACL LIST 추가하는 스크립트
+## jq 설치 필요
+# sudo apt-get install jq
+# jq --version
 
 myVpcNo='39407'
 #myIp='10.0.3.8'
