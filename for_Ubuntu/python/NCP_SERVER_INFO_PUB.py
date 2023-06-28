@@ -5,9 +5,9 @@
 생성자         : ljw
 최종수정일자   : 2023-06-26
 최종수정자     :
-파일설명       : 서버 정보 조회(count/spec/OS/InstanceID)
+파일설명       : 
+- 공공 기관용 서버 정보 조회(count/spec/OS/InstanceID)
 ------------------------------
-
 """
 
 import sys
@@ -23,11 +23,10 @@ from datetime import datetime
 timestamp = int(time.time() * 1000)
 
 # api info
-access_key = "A5DE60951CD13BE5B902"
-secret_key = "C9A94D6367CBEF57EEBAE90F1C2BBC3A4196DB57"
+access_key = ""
+secret_key = ""
 secret_key = bytes(secret_key, "UTF-8")
 
-#api_server = "https://cw.apigw.ntruss.com"
 api_server = "https://ncloud.apigw.gov-ntruss.com"
 api_url = "/vserver/v2/getServerInstanceList"
 api_url = api_url + "?responseFormatType=json"
