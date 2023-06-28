@@ -5,9 +5,10 @@
 생성자         : ljw
 최종수정일자   : 2023-06-26
 최종수정자     :
-파일설명       : 서버 정보 조회(count/spec/OS/InstanceID)
+파일설명       : 
+- NCP 일반/기업용
+- 서버 정보 조회(count/spec/OS/InstanceID)
 ------------------------------
-
 """
 
 import sys
@@ -89,15 +90,17 @@ for i in range(server_cnt):
     server_info_tmp += ", "
 
 """
-server_info 데이터 정보
+server_info 데이터 정보 예시
 
-serverInfo : 
-  serverInstanceNo, 
-  serverOperation, 
-  serverName, 
-  serverSpectCode, 
-  serverInstanceStatusName
-
+{ serverCount : "XX",
+serverInfo : [{
+  serverInstanceNo : XX, 
+  serverOperation : XX, 
+  serverName : XX, 
+  serverSpectCode : XX, 
+  serverInstanceStatusName : XX
+  }]
+}
 """
 server_info = json.loads(server_info_tmp)
-#print(server_info)
+print(server_info)
