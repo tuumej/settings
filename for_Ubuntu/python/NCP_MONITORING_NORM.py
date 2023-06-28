@@ -5,25 +5,11 @@
 생성자         : ljw
 최종수정일자   : 2023-06-27
 최종수정자     : 
-설명           : 서버 리소스 사용량 조회(cpu,mem,diski)
+설명           : 
+- NCP 일반/기업용 
+- 서버 리소스 사용량 조회(cpu,mem,diski)
+
 ------------------------------
-
-01. 데이터 조회
-
-- Metric Info
- 1) avg_cpu_used_rto
- 2) mem_usert
- 3) avg_fs_usert
-
-- Time 1분전
-
-02. 데이터 파싱
-
-- cpu_min, cpu_max, cpu_avg, mem, disk 
-
-03. 데이터 저장
-
-
 """
 import os
 import sys
@@ -62,8 +48,8 @@ m_list = ['avg_cpu_used_rto', 'mem_usert', 'avg_fs_usert']
 ag_list = ['AVG']
 
 # api info
-access_key = "8z6s0NSPFKlSohYUb0QT"
-secret_key = "bJtTFuI1q0GQjX8mxnQvjYWw0YZJPaUQffrZzwYo"
+access_key = ""
+secret_key = ""
 secret_key = bytes(secret_key, "UTF-8")
 
 api_server = "https://cw.apigw.ntruss.com"
